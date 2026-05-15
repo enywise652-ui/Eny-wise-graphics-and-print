@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madrasat Ash-Sheikh Abdul Qadir Bin Busheeri Adun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0B3D2E;
+            --primary-light: #145A42;
+            --accent: #C9A84C;
+            --accent-light: #D4B76A;
+            --bg-cream: #F5F0E8;
+            --bg-light: #FAF8F3;
+            --text-dark: #1A1A1A;
+            --text-body: #4A4A4A;
+            --text-muted: #7A7A7A;
+            --white: #FFFFFF;
+            --border: #E8E2D6;
+            --shadow: 0 4px 24px rgba(11, 61, 46, 0.08);
+            --shadow-lg: 0 12px 48px rgba(11, 61, 46, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .arabic {
+            font-family: 'Amiri', serif;
+            direction: rtl;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(201, 168, 76, 0.12);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 100px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .section-title em {
+            color: var(--primary);
+            font-style: italic;
+            font-family: 'Georgia', serif;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 248, 243, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(11, 61, 46, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-accent:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-cream) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 100px;
+            margin-bottom: 32px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            font-family: 'Georgia', serif;
+            font-style: italic;
+        }
+
+        .hero .arabic-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+            border-radius: 32px;
+            margin: 0 24px;
+            max-width: calc(1200px - 48px);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .values {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .value-tag {
+            padding: 8px 20px;
+            background: var(--primary);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 100px;
+        }
+
+        .about-quote {
+            background: var(--primary);
+            color: var(--white);
+            padding: 48px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .about-quote::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: -10px;
+            left: 24px;
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+
+        .about-quote p {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-quote .author {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+        }
+
+        .program-level {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .program-title {
+            font-size: 1.6rem;
+            color: var(--white);
+            font-family: 'Georgia', serif;
+            font-style: italic;
+        }
+
+        .program-body {
+            padding: 32px;
+        }
+
+        .program-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .program-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-body);
+        }
+
+        .program-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Teachers Section */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .teacher-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .teacher-image {
+            width: 100%;
+            height: 280px;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teacher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .teacher-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 4rem;
+        }
+
+        .teacher-body {
+            padding: 32px;
+        }
+
+        .teacher-name {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .teacher-subject {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .teacher-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Students Section */
+        .students-section {
+            background: var(--bg-light);
+            border-radius: 32px;
+            margin: 0 24px;
+            max-width: calc(1200px - 48px);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .student-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .student-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .student-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            overflow: hidden;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .student-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .student-avatar i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .student-name {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .student-class {
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--bg-light);
+            border-radius: 32px;
+            margin: 0 24px;
+            max-width: calc(1200px - 48px);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            background: var(--primary);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--white);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(201, 168, 76, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-details p, .contact-details a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 64px 24px 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand .logo-icon {
+            background: var(--accent);
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+
+        .footer-brand p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-credit {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .arabic-title {
+                font-size: 1.4rem;
+            }
+
+            .about-content,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            section {
+                padding: 64px 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .students-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-light);
+            z-index: 1001;
+            padding: 80px 32px 32px;
+            transition: right 0.3s ease;
+            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 8px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .admin-link {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            z-index: 998;
+        }
+
+        .admin-link a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--primary);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .admin-link a:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Form status messages */
+        .form-status {
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: flex;
+        }
+
+        .form-status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: flex;
+        }
+
+        .form-status.sending {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon" id="logoContainer">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <div class="logo-text">
+                    <span id="navSchoolName">Madrasat Ash-Sheikh</span>
+                    <span>Qur'an & Islamic Studies</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="#students">Students</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="tel:09025213498" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about" onclick="toggleMenu()"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#programs" onclick="toggleMenu()"><i class="fas fa-book"></i> Programs</a></li>
+            <li><a href="#teachers" onclick="toggleMenu()"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+            <li><a href="#students" onclick="toggleMenu()"><i class="fas fa-users"></i> Students</a></li>
+            <li><a href="#gallery" onclick="toggleMenu()"><i class="fas fa-images"></i> Gallery</a></li>
+            <li><a href="#contact" onclick="toggleMenu()"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="admin.html" onclick="toggleMenu()"><i class="fas fa-cog"></i> Admin Panel</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-circle" style="font-size:6px"></i> Online &middot; You are &middot; Welcome</div>
+            <h1 id="heroTitle">Learn <span class="highlight">Qur'an</span><br>& Islam <em>the authentic way</em></h1>
+            <p class="arabic arabic-title" id="heroArabic">مدرسة الشيخ عبد القادر بن بوصيري أدون للتعليم العربي والإسلامي</p>
+            <p id="heroDesc">Combining traditional Madrasah scholarship with modern E-Learning  bringing certified Qur'anic education to every home, worldwide.</p>
+            <div class="hero-buttons">
+                <a href="tel:09025213498" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="#programs" class="btn btn-outline"><i class="fas fa-book-open"></i> View Programs</a>
+                <a href="https://wa.me/2349025213498" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="statStudents">100+</div>
+                    <div class="stat-label">Students</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Exp.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="statPrograms">7</div>
+                    <div class="stat-label">Programs</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in" id="about">
+        <div class="section-header">
+            <span class="section-label">About Us</span>
+            <h2 class="section-title">About Our <em>Institution</em></h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p id="aboutText"><strong>Madrasat Ash-Sheikh Abdul Qadir Bin Bushairi Adun</strong> is a dedicated Islamic educational institute committed to delivering authentic, structured Islamic education to students worldwide. We bridge the gap between traditional Madrasah scholarship and the convenience of modern technology.</p>
+                <p>Located in <strong>Ajibesin, Ogidi, Ilorin, Kwara State, Nigeria</strong>, we serve the Muslim community with dedication and excellence, striving to be a beacon of Islamic knowledge and values.</p>
+                <div class="values">
+                    <span class="value-tag">Authenticity</span>
+                    <span class="value-tag">Discipline</span>
+                    <span class="value-tag">Sincerity</span>
+                    <span class="value-tag">Excellence</span>
+                    <span class="value-tag">Accessibility</span>
+                </div>
+            </div>
+            <div class="about-quote">
+                <p>"Our mission is to revive authentic Islamic knowledge through structured and accessible learning, nurturing students who live by the Qur'an."</p>
+                <div class="author">— Sheikh Abdul Qadir Bin Bushairi &middot; Founder</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="fade-in">
+        <div class="section-header">
+            <span class="section-label">Curriculum</span>
+            <h2 class="section-title">Our <em>Programs</em></h2>
+            <p class="section-subtitle">From your first Arabic letter to advanced Qur'anic sciences  structured pathways for every level.</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-level">Level 01</div>
+                    <div class="program-title">Beginner</div>
+                </div>
+                <div class="program-body">
+                    <ul class="program-list">
+                        <li>Iqra & Arabic Alphabet</li>
+                        <li>Basic Qur'an Recitation</li>
+                        <li>Introduction to Tajweed</li>
+                        <li>Foundational Duas & Prayers</li>
+                    </ul>
+                    <a href="https://wa.me/2349025213498" class="btn btn-primary" style="width:100%" target="_blank"><i class="fas fa-paper-plane"></i> Enroll Now</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-level">Level 02</div>
+                    <div class="program-title">Intermediate</div>
+                </div>
+                <div class="program-body">
+                    <ul class="program-list">
+                        <li>Fluent Qur'an Recitation</li>
+                        <li>Applied Tajweed Rules</li>
+                        <li>Islamic Studies (Fiqh, Seerah)</li>
+                        <li>Memorisation of Juz Al-Ahqaf</li>
+                    </ul>
+                    <a href="https://wa.me/2349025213498" class="btn btn-primary" style="width:100%" target="_blank"><i class="fas fa-paper-plane"></i> Enroll Now</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-level">Level 03</div>
+                    <div class="program-title">Advanced / Hifz</div>
+                </div>
+                <div class="program-body">
+                    <ul class="program-list">
+                        <li>Full Qur'an Memorisation</li>
+                        <li>Advanced Tajweed & Qira'at</li>
+                        <li>Ijaza Certification Track</li>
+                        <li>Qur'anic Sciences (Tafseer)</li>
+                    </ul>
+                    <a href="https://wa.me/2349025213498" class="btn btn-primary" style="width:100%" target="_blank"><i class="fas fa-paper-plane"></i> Enroll Now</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-header" style="background: var(--primary-light);">
+                    <div class="program-level">Specialisation</div>
+                    <div class="program-title">Arabic Language</div>
+                </div>
+                <div class="program-body">
+                    <ul class="program-list">
+                        <li>Modern Standard Arabic</li>
+                        <li>Classical Arabic (Fus-ha)</li>
+                        <li>Arabic Grammar (Nahw & Sarf)</li>
+                        <li>Qur'anic Arabic Vocabulary</li>
+                    </ul>
+                    <a href="https://wa.me/2349025213498" class="btn btn-primary" style="width:100%" target="_blank"><i class="fas fa-paper-plane"></i> Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section id="teachers" class="fade-in">
+        <div class="section-header">
+            <span class="section-label">Your Teachers</span>
+            <h2 class="section-title">Learn from the <em>best</em></h2>
+            <p class="section-subtitle" id="teacherCountSubtitle">Meet our dedicated team of certified Islamic educators.</p>
+        </div>
+        <div class="teachers-grid" id="teachersGrid">
+            <!-- Dynamic content -->
+        </div>
+    </section>
+
+    <!-- Students Section -->
+    <section class="students-section fade-in" id="students">
+        <div class="section-header">
+            <span class="section-label">Our Community</span>
+            <h2 class="section-title">Meet Some of Our <em>Students</em></h2>
+            <p class="section-subtitle">A growing family of learners from different backgrounds, all connected by a love for Qur'an and knowledge.</p>
+        </div>
+        <div class="students-grid" id="studentsGrid">
+            <!-- Dynamic content -->
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery fade-in" id="gallery">
+        <div class="section-header">
+            <span class="section-label">Gallery</span>
+            <h2 class="section-title">Our <em>Gallery</em></h2>
+            <p class="section-subtitle">Moments from our journey of learning and growth.</p>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamic content -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <div class="section-header">
+            <span class="section-label">Contact</span>
+            <h2 class="section-title">Get in <em>touch</em></h2>
+            <p class="section-subtitle">Ready to start your journey? Reach out  we reply within 24 hours, in shaa Allah.</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div class="contact-details">
+                        <h4>Phone / WhatsApp</h4>
+                        <a href="tel:09025213498" id="contactPhone">090 2521 3498</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <a href="mailto:enywise652@gmail.com" id="contactEmail">enywise652@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p id="contactLocation">Ajibesin, Ogidi, Ilorin, Kwara State, Nigeria</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                    <div class="contact-details">
+                        <h4>Availability</h4>
+                        <p>Online — Worldwide Reach<br>Flexible hours &middot; All time zones</p>
+                    </div>
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="https://wa.me/2349025213498" class="btn btn-whatsapp" style="width:100%; margin-bottom:12px" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+                    <a href="tel:09025213498" class="btn btn-primary" style="width:100%"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="margin-bottom: 24px;">Send a Message</h3>
+                <div class="form-status" id="formStatus"></div>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="formName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="formEmail" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Interested Program</label>
+                        <select id="formProgram" required>
+                            <option value="">Select a program...</option>
+                            <option>Beginner Level</option>
+                            <option>Intermediate Level</option>
+                            <option>Advanced / Hifz</option>
+                            <option>Arabic Language</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea id="formMessage" placeholder="Tell us a bit about yourself or your child..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-icon" id="footerLogo"><i class="fas fa-mosque"></i></div>
+                <h3 id="footerSchoolName">Madrasat Ash-Sheikh Abdul Qadir Bin Bushairi Adun</h3>
+                <p>Authentic Islamic education combining traditional Madrasah scholarship with modern E-Learning. Serving the Ummah with sincerity and excellence.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#teachers">Teachers</a></li>
+                    <li><a href="#students">Students</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#programs">Qur'an Recitation</a></li>
+                    <li><a href="#programs">Tajweed Rules</a></li>
+                    <li><a href="#programs">Hifz Program</a></li>
+                    <li><a href="#programs">Arabic Language</a></li>
+                    <li><a href="#programs">Islamic Studies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-credit" id="footerCredit">Editor by eny_wise 09025213498</div>
+            <div class="footer-social">
+                <a href="#" id="socialFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" id="socialInstagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" id="socialYoutube" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://wa.me/2349025213498" id="socialWhatsapp" title="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/2349025213498" class="whatsapp-float" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Admin Link -->
+    <div class="admin-link">
+        <a href="admin.html"><i class="fas fa-cog"></i> Admin Panel</a>
+    </div>
+
+    <script>
+        // Cloudinary Config
+        const CLOUDINARY_CLOUD_NAME = 'dd7rgez1e';
+        const CLOUDINARY_UPLOAD_PRESET = 'my_school_app';
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Form submission via FormSubmit.co (no backend required, sends to any email dynamically)
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            const data = JSON.parse(localStorage.getItem('schoolData') || '{}');
+            const targetEmail = data.email || 'enywise652@gmail.com';
+            
+            const name = document.getElementById('formName').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+            const program = document.getElementById('formProgram').value;
+            const message = document.getElementById('formMessage').value.trim();
+            const statusDiv = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            if (!name || !email || !program || !message) {
+                statusDiv.className = 'form-status error';
+                statusDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill in all fields.';
+                return;
+            }
+            
+            statusDiv.className = 'form-status sending';
+            statusDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Use FormSubmit.co service - sends to the admin email dynamically
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('program', program);
+            formData.append('message', message);
+            formData.append('_subject', 'New Message from Madrasat Ash-Sheikh Website');
+            formData.append('_template', 'table');
+            formData.append('_captcha', 'false');
+            
+            fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success === 'true' || result.success === true) {
+                    statusDiv.className = 'form-status success';
+                    statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully! We will reply within 24 hours, in shaa Allah.';
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(error => {
+                // Fallback: mailto link with pre-filled content
+                const subject = encodeURIComponent('New Message from Madrasat Ash-Sheikh Website');
+                const body = encodeURIComponent(
+                    `Name: ${name}\n` +
+                    `Email: ${email}\n` +
+                    `Program: ${program}\n\n` +
+                    `Message:\n${message}`
+                );
+                d
+                window.location.href = `mailto:${targetEmail}?subject=${subject}&body=${body}`;
+                
+                statusDiv.className = 'form-status success';
+                statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Opening your email app to send the message...';
+                document.getElementById('contactForm').reset();
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                
+                setTimeout(() => {
+                    statusDiv.className = 'form-status';
+                    statusDiv.innerHTML = '';
+                }, 6000);
+            });
+        }
+
+        // Render Teachers
+        function renderTeachers(teachers) {
+            const grid = document.getElementById('teachersGrid');
+            if (!teachers || teachers.length === 0) {
+                grid.innerHTML = `
+                    <div class="teacher-card">
+                        <div class="teacher-image">
+                            <div class="teacher-image-placeholder"><i class="fas fa-user-tie"></i></div>
+                        </div>
+                        <div class="teacher-body">
+                            <h3 class="teacher-name">Sheikh Abdul Qadir</h3>
+                            <div class="teacher-subject">Founder & Lead Teacher</div>
+                            <p class="teacher-desc">With years of dedicated service to the science of the Qur'an and formal certification in Islamic studies.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = teachers.map(t => `
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        ${t.image ? `<img src="${t.image}" alt="${t.name}">` : `<div class="teacher-image-placeholder"><i class="fas fa-user-tie"></i></div>`}
+                    </div>
+                    <div class="teacher-body">
+                        <h3 class="teacher-name">${t.name}</h3>
+                        <div class="teacher-subject">${t.subject}</div>
+                        <p class="teacher-desc">${t.description}</p>
+                    </div>
+                </div>
+            `).join('');
+            
+            document.getElementById('teacherCountSubtitle').textContent = `Meet our team of ${teachers.length} dedicated certified Islamic educators.`;
+        }
+
+        // Render Students
+        function renderStudents(students) {
+            const grid = document.getElementById('studentsGrid');
+            if (!students || students.length === 0) {
+                grid.innerHTML = `
+                    <div class="student-card">
+                        <div class="student-avatar"><i class="fas fa-user"></i></div>
+                        <div class="student-name">Ahmad</div>
+                        <div class="student-class">Beginner</div>
+                    </div>
+                    <div class="student-card">
+                        <div class="student-avatar"><i class="fas fa-user"></i></div>
+                        <div class="student-name">Fatima</div>
+                        <div class="student-class">Intermediate</div>
+                    </div>
+                    <div class="student-card">
+                        <div class="student-avatar"><i class="fas fa-user"></i></div>
+                        <div class="student-name">Yusuf</div>
+                        <div class="student-class">Advanced</div>
+                    </div>
+                    <div class="student-card">
+                        <div class="student-avatar"><i class="fas fa-user"></i></div>
+                        <div class="student-name">Aisha</div>
+                        <div class="student-class">Arabic</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = students.map(s => `
+                <div class="student-card">
+                    <div class="student-avatar">
+                        ${s.image ? `<img src="${s.image}" alt="${s.name}">` : `<i class="fas fa-user"></i>`}
+                    </div>
+                    <div class="student-name">${s.name}</div>
+                    <div class="student-class">${s.class}</div>
+                </div>
+            `).join('');
+            
+            document.getElementById('statStudents').textContent = students.length + '+';
+        }
+
+        // Render Gallery
+        function renderGallery(images) {
+            const grid = document.getElementById('galleryGrid');
+            if (!images || images.length === 0) {
+                grid.innerHTML = `
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-mosque"></i></div></div>
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-book-open"></i></div></div>
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-graduation-cap"></i></div></div>
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-praying-hands"></i></div></div>
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-moon"></i></div></div>
+                    <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-star"></i></div></div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = images.map(img => `
+                <div class="gallery-item">
+                    <img src="${img}" alt="Gallery image">
+                </div>
+            `).join('');
+        }
+
+        // Update Logo
+        function updateLogo(logoUrl) {
+            if (logoUrl) {
+                const logoHtml = `<img src="${logoUrl}" alt="School Logo" style="width:100%;height:100%;object-fit:cover;">`;
+                document.getElementById('logoContainer').innerHTML = logoHtml;
+                document.getElementById('footerLogo').innerHTML = logoHtml;
+            }
+        }
+
+        // Load data from localStorage
+        function loadStoredData() {
+            const data = JSON.parse(localStorage.getItem('schoolData') || '{}');
+            
+            if (data.schoolName) {
+                document.getElementById('navSchoolName').textContent = data.schoolName;
+                document.getElementById('footerSchoolName').textContent = data.schoolName;
+            }
+            if (data.phone) {
+                document.getElementById('contactPhone').textContent = data.phone;
+                document.getElementById('contactPhone').href = 'tel:' + data.phone.replace(/\s/g, '');
+            }
+            if (data.email) {
+                document.getElementById('contactEmail').textContent = data.email;
+                document.getElementById('contactEmail').href = 'mailto:' + data.email;
+            }
+            if (data.location) {
+                document.getElementById('contactLocation').textContent = data.location;
+            }
+            if (data.heroTitle) {
+                document.getElementById('heroTitle').innerHTML = data.heroTitle;
+            }
+            if (data.heroArabic) {
+                document.getElementById('heroArabic').textContent = data.heroArabic;
+            }
+            if (data.heroDesc) {
+                document.getElementById('heroDesc').textContent = data.heroDesc;
+            }
+            if (data.aboutText) {
+                document.getElementById('aboutText').innerHTML = data.aboutText;
+            }
+            if (data.footerCredit) {
+                document.getElementById('footerCredit').textContent = data.footerCredit;
+            }
+            if (data.logo) {
+                updateLogo(data.logo);
+            }
+            if (data.facebook) {
+                document.getElementById('socialFacebook').href = data.facebook;
+            }
+            if (data.instagram) {
+                document.getElementById('socialInstagram').href = data.instagram;
+            }
+            if (data.youtube) {
+                document.getElementById('socialYoutube').href = data.youtube;
+            }
+            if (data.whatsapp) {
+                document.getElementById('socialWhatsapp').href = data.whatsapp;
+            }
+            
+            renderTeachers(data.teachers);
+            renderStudents(data.students);
+            renderGallery(data.galleryImages);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadStoredData);
+    </script>
+</body>
+</html>
